@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة شحن الشدات</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>منصة شحن الشدات</h1>
+        <nav>
+            <ul>
+                <li><a href="#account-section"><i class="fas fa-user"></i> معرف الحساب</a></li>
+                <li><a href="#packages-section"><i class="fas fa-gift"></i> الباقات</a></li>
+                <li><a href="#cart-section"><i class="fas fa-shopping-cart"></i> سلة التسوق</a></li>
+                <li><a href="#tracking-section"><i class="fas fa-truck"></i> تعقب الطلب</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- قسم إدخال المعرف -->
+        <section id="account-section">
+            <h2><i class="fas fa-user-circle"></i> إدخال معرف الحساب</h2>
+            <form>
+                <label for="account-id">معرف الحساب (ID):</label>
+                <input type="text" id="account-id" placeholder="أدخل معرف الحساب" required>
+                <button type="button" onclick="addToCart()">إضافة للسلة</button>
+            </form>
+        </section>
+
+        <!-- قسم الباقات -->
+        <section id="packages-section">
+            <h2><i class="fas fa-box-open"></i> الباقات المتاحة</h2>
+            <ul class="packages">
+                <li data-glow="1">
+                    <span>100 شدة - 5,000 دينار</span>
+                    <button onclick="addToCart('100 شدة', 5000)">اشترِ الآن <i class="fas fa-cart-plus"></i></button>
+                </li>
+                <li data-glow="2">
+                    <span>250 شدة - 12,000 دينار</span>
+                    <button onclick="addToCart('250 شدة', 12000)">اشترِ الآن <i class="fas fa-cart-plus"></i></button>
+                </li>
+                <li data-glow="3">
+                    <span>500 شدة - 20,000 دينار</span>
+                    <button onclick="addToCart('500 شدة', 20000)">اشترِ الآن <i class="fas fa-cart-plus"></i></button>
+                </li>
+                <li data-glow="4">
+                    <span>1000 شدة - 35,000 دينار</span>
+                    <button onclick="addToCart('1000 شدة', 35000)">اشترِ الآن <i class="fas fa-cart-plus"></i></button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- قسم سلة التسوق -->
+        <section id="cart-section">
+            <h2><i class="fas fa-shopping-cart"></i> سلة التسوق</h2>
+            <ul id="cart-items"></ul>
+            <p id="total-price">إجمالي السعر: 0 دينار</p>
+            <button onclick="proceedToTelegram()">إتمام الطلب</button>
+        </section>
+
+        <!-- قسم تعقب الطلب -->
+        <section id="tracking-section">
+            <h2><i class="fas fa-truck"></i> تعقب الطلب</h2>
+            <form>
+                <label for="tracking-id">معرف الطلب:</label>
+                <input type="text" id="tracking-id" placeholder="أدخل معرف الطلب" required>
+                <button type="button" onclick="trackOrder()">تعقب الآن</button>
+            </form>
+            <div id="tracking-result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 منصة شحن الشدات | جميع الحقوق محفوظة</p>
+    </footer>
+</body>
+</html>
